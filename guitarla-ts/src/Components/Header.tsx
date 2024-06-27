@@ -1,6 +1,16 @@
-import { useCart } from "../hooks/useCart";
+import type { Guitar, CartItem } from '../types/index'
 
-const Header = ({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartotal }) => {
+type HeaderProps = {
+  cart: CartItem[]
+  removeFromCart: (id: Guitar['id']) => void
+  increaseQuantity: (id: Guitar['id']) => void
+  decreaseQuantity: (id: Guitar['id']) => void
+  clearCart: () => void
+  isEmpty: boolean
+  cartotal: number
+}
+
+const Header = ({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartotal } : HeaderProps ) => {
 
   return (
     <>
@@ -25,7 +35,7 @@ const Header = ({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clea
                 />
 
                 <div id="carrito" className="bg-white p-3">
-                  {isEmpty === 0 ? (
+                  {isEmpty ? (
                     <p className="text-center">El carrito esta vacio</p>
                   ) : (
                     <>

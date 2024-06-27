@@ -1,7 +1,7 @@
  
 import Header from "./Components/Header";
 import Guitar from "./Components/Guitar";
-import { useCart } from "./hooks/useCart";
+import { useCart } from './hooks/useCart'
 
 function App() {
 
